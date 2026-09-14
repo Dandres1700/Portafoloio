@@ -25,12 +25,55 @@ export interface Project {
   tech: string[];
   repo: string;
   demo?: string;
+  /** Repositorio privado: se muestra sin enlace al código. */
+  privateRepo?: boolean;
+  /** Proyecto desarrollado en equipo. */
+  team?: boolean;
+  badge?: Text;
   description: Text;
 }
 
 const repo = (name: string) => `${profile.github}/${name}`;
 
 export const projects: Project[] = [
+  {
+    name: 'RUMI',
+    slug: 'rumi',
+    category: 'game',
+    tech: ['Godot 4', 'GDScript', '3D'],
+    repo: 'https://github.com/sistemas-it/RUMI',
+    privateRepo: true,
+    team: true,
+    badge: { es: 'Game Jam Ecuador 2026', en: 'Game Jam Ecuador 2026' },
+    description: {
+      es: 'Aventura 3D de suspenso y gestión del tiempo inspirada en la leyenda quiteña de Cantuña. Durante una sola noche hay que construir el atrio de San Francisco recogiendo y colocando sillares, decidir si aceptar un pacto infernal y llegar a uno de sus tres finales.',
+      en: 'A 3D suspense and time-management adventure inspired by the Quito legend of Cantuña. In a single night you must build the atrium of San Francisco by carrying and placing stone blocks, decide whether to accept an infernal pact and reach one of three endings.',
+    },
+  },
+  {
+    name: 'Ride App',
+    slug: 'ride-app',
+    category: 'mobile',
+    tech: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'Realtime'],
+    repo: 'https://github.com/betzabxscobar/APPRIDE',
+    team: true,
+    description: {
+      es: 'App móvil de transporte de pasajeros hecha en equipo, donde soy el principal contribuidor. Tiene paneles de pasajero, conductor y administración, mapa y buscador de direcciones, tarifas, pagos, cuota mensual para choferes y notificaciones, todo sobre Supabase con permisos por rol.',
+      en: 'Team-built ride-hailing mobile app where I am the main contributor. It has passenger, driver and admin panels, a map with address search, fares, payments, a monthly driver fee and notifications, all on Supabase with role-based permissions.',
+    },
+  },
+  {
+    name: 'Ride Web',
+    slug: 'ride-web',
+    category: 'web',
+    tech: ['React', 'TypeScript', 'Vite', 'Supabase'],
+    repo: 'https://github.com/betzabxscobar/WEB-RIDE',
+    team: true,
+    description: {
+      es: 'Versión web de Ride. Replica los paneles de pasajero, conductor y administración de la app móvil sobre la misma base de datos y con las mismas reglas: registro, recuperación de contraseña, roles y gestión de viajes.',
+      en: 'Web version of Ride. It mirrors the passenger, driver and admin panels of the mobile app on the same database and with the same rules: sign-up, password recovery, roles and trip management.',
+    },
+  },
   {
     name: 'MondongoGames',
     slug: 'mondongo-games',
@@ -143,6 +186,7 @@ export interface Content {
     issuer: string;
     view: string;
     items: { title: string; detail: string; image: string; date: string }[];
+    events: { title: string; role: string; place: string; projectSlug: string; projectName: string }[];
   };
   projects: {
     title: string;
@@ -151,6 +195,8 @@ export interface Content {
     code: string;
     demo: string;
     more: string;
+    team: string;
+    privateRepo: string;
   };
   skills: {
     title: string;
@@ -196,13 +242,14 @@ export const content: Record<Lang, Content> = {
         { kind: 'out', text: 'Python · TypeScript · Django · Flutter · Unity' },
         { kind: 'cmd', text: 'ls logros/' },
         { kind: 'out', text: '🏆 mejor-proyecto-integrador (x2)' },
+        { kind: 'out', text: '🎮 game-jam-ecuador-2026' },
       ],
     },
     about: {
       title: 'Sobre mí',
       paragraphs: [
         'Soy estudiante de Tecnología en Desarrollo de Software en el Instituto Superior Tecnológico Sudamericano (Quito) y estoy por cursar el cuarto y último semestre.',
-        'Me gusta llevar las ideas a algo que funcione: desde una app web con Django y Supabase hasta un juego de lucha en Unity. También hice mis pasantías en soporte técnico, así que conozco el software y el hardware.',
+        'Me gusta llevar las ideas a algo que funcione: desde una app de transporte en Flutter y React hecha en equipo hasta RUMI, el juego que presentamos en la Game Jam Ecuador 2026 en Quito. También hice mis pasantías en soporte técnico, así que conozco el software y el hardware.',
         'Trabajé más de dos años atendiendo clientes bajo presión. De ahí vienen mi responsabilidad, mi forma de comunicarme y mi facilidad para trabajar en equipo.',
       ],
       stats: [
@@ -214,7 +261,8 @@ export const content: Record<Lang, Content> = {
     },
     awards: {
       title: 'Reconocimientos',
-      intro: 'La Escuela de Desarrollo de Software me premió dos veces por el mejor proyecto integrador del nivel.',
+      intro:
+        'La Escuela de Desarrollo de Software me premió dos veces por el mejor proyecto integrador del nivel. También participé en la Game Jam Ecuador 2026.',
       issuer: 'Escuela de Desarrollo de Software · Instituto Superior Tecnológico Sudamericano',
       view: 'Ver certificado',
       items: [
@@ -231,21 +279,32 @@ export const content: Record<Lang, Content> = {
           date: '11 sep 2025',
         },
       ],
+      events: [
+        {
+          title: 'Game Jam Ecuador 2026',
+          role: 'Participante con el videojuego',
+          place: 'Quito, Ecuador · 2026',
+          projectSlug: 'rumi',
+          projectName: 'RUMI',
+        },
+      ],
     },
     projects: {
       title: 'Proyectos',
-      intro: 'Una selección de proyectos académicos y personales: web, móvil y videojuegos.',
+      intro: 'Una selección de proyectos académicos, personales y en equipo: web, móvil y videojuegos.',
       filters: { all: 'Todos', web: 'Web', mobile: 'Móvil', game: 'Videojuegos' },
       code: 'Código',
       demo: 'Demo',
       more: 'Ver todos mis repositorios',
+      team: 'En equipo',
+      privateRepo: 'Repositorio privado',
     },
     skills: {
       title: 'Habilidades',
       groups: [
         { label: 'Lenguajes', items: ['Python', 'JavaScript', 'TypeScript', 'Dart', 'C#', 'SQL', 'Java (básico)'] },
-        { label: 'Web y móvil', items: ['HTML', 'CSS', 'Django', 'Flask', 'Vite', 'Flutter'] },
-        { label: 'Videojuegos', items: ['Unity 2D', 'Unity 3D', 'Input System'] },
+        { label: 'Web y móvil', items: ['HTML', 'CSS', 'React', 'Django', 'Flask', 'Vite', 'Flutter'] },
+        { label: 'Videojuegos', items: ['Unity 2D', 'Unity 3D', 'Godot 4', 'GDScript'] },
         { label: 'Bases de datos', items: ['PostgreSQL', 'MariaDB', 'Supabase', 'XAMPP'] },
         { label: 'Herramientas', items: ['Git', 'GitHub', 'GitHub Pages'] },
         {
@@ -349,13 +408,14 @@ export const content: Record<Lang, Content> = {
         { kind: 'out', text: 'Python · TypeScript · Django · Flutter · Unity' },
         { kind: 'cmd', text: 'ls awards/' },
         { kind: 'out', text: '🏆 best-capstone-project (x2)' },
+        { kind: 'out', text: '🎮 game-jam-ecuador-2026' },
       ],
     },
     about: {
       title: 'About me',
       paragraphs: [
         "I'm a Software Development Technology student at Instituto Superior Tecnológico Sudamericano (Quito), about to start my fourth and final semester.",
-        'I enjoy turning ideas into things that work, from a Django + Supabase web app to a fighting game in Unity. My internship was in IT support, so I understand both software and hardware.',
+        'I enjoy turning ideas into things that work, from a team-built ride-hailing app in Flutter and React to RUMI, the game we presented at Game Jam Ecuador 2026 in Quito. My internship was in IT support, so I understand both software and hardware.',
         'I also spent over two years in customer-facing jobs under pressure. That is where my sense of responsibility, communication skills and teamwork come from.',
       ],
       stats: [
@@ -367,7 +427,8 @@ export const content: Record<Lang, Content> = {
     },
     awards: {
       title: 'Awards',
-      intro: 'The School of Software Development awarded me twice for the best capstone project of the level.',
+      intro:
+        'The School of Software Development awarded me twice for the best capstone project of the level. I also took part in Game Jam Ecuador 2026.',
       issuer: 'School of Software Development · Instituto Superior Tecnológico Sudamericano',
       view: 'View certificate',
       items: [
@@ -384,21 +445,32 @@ export const content: Record<Lang, Content> = {
           date: 'Sep 11, 2025',
         },
       ],
+      events: [
+        {
+          title: 'Game Jam Ecuador 2026',
+          role: 'Participant with the game',
+          place: 'Quito, Ecuador · 2026',
+          projectSlug: 'rumi',
+          projectName: 'RUMI',
+        },
+      ],
     },
     projects: {
       title: 'Projects',
-      intro: 'A selection of academic and personal projects: web, mobile and games.',
+      intro: 'A selection of academic, personal and team projects: web, mobile and games.',
       filters: { all: 'All', web: 'Web', mobile: 'Mobile', game: 'Games' },
       code: 'Code',
       demo: 'Demo',
       more: 'See all my repositories',
+      team: 'Team project',
+      privateRepo: 'Private repository',
     },
     skills: {
       title: 'Skills',
       groups: [
         { label: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'Dart', 'C#', 'SQL', 'Java (basic)'] },
-        { label: 'Web & mobile', items: ['HTML', 'CSS', 'Django', 'Flask', 'Vite', 'Flutter'] },
-        { label: 'Game dev', items: ['Unity 2D', 'Unity 3D', 'Input System'] },
+        { label: 'Web & mobile', items: ['HTML', 'CSS', 'React', 'Django', 'Flask', 'Vite', 'Flutter'] },
+        { label: 'Game dev', items: ['Unity 2D', 'Unity 3D', 'Godot 4', 'GDScript'] },
         { label: 'Databases', items: ['PostgreSQL', 'MariaDB', 'Supabase', 'XAMPP'] },
         { label: 'Tools', items: ['Git', 'GitHub', 'GitHub Pages'] },
         {

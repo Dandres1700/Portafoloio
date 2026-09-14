@@ -32,6 +32,7 @@ const icons = {
   pin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
   trophy:
     '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 4h8v5a4 4 0 0 1-8 0V4ZM8 6H4v1a4 4 0 0 0 4 4m8-5h4v1a4 4 0 0 1-4 4m-4 2v4m-4 3h8"/></svg>',
+  lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4"/></svg>',
   menu: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>',
 };
 
@@ -131,6 +132,19 @@ function renderAwards(t: Content): string {
       ${sectionTitle(2, 'awards', t.awards.title)}
       <p class="section-intro reveal">${t.awards.intro}</p>
       <div class="awards-grid">${cards}</div>
+      <div class="events">${t.awards.events
+        .map(
+          (e) => `
+        <article class="card event reveal">
+          <span class="event-icon" aria-hidden="true">🎮</span>
+          <div>
+            <p class="event-place mono">${e.place}</p>
+            <h3>${e.title}</h3>
+            <p class="muted">${e.role} <a class="event-link" href="#project-${e.projectSlug}">${e.projectName} ↓</a></p>
+          </div>
+        </article>`,
+        )
+        .join('')}</div>
       <dialog class="lightbox" id="lightbox">
         <form method="dialog"><button class="lightbox-close" aria-label="Cerrar">✕</button></form>
         <img src="" alt="" />
@@ -148,16 +162,21 @@ function renderProjects(t: Content): string {
   const cards = projects
     .map(
       (p) => `
-      <article class="card project reveal" data-category="${p.category}" ${activeFilter !== 'all' && activeFilter !== p.category ? 'hidden' : ''}>
+      <article class="card project reveal" id="project-${p.slug}" data-category="${p.category}" ${activeFilter !== 'all' && activeFilter !== p.category ? 'hidden' : ''}>
         <div class="project-top">
           <span class="project-glyph mono" aria-hidden="true">${categoryGlyph[p.category]}</span>
           <span class="project-path mono">~/${t.projects.filters[p.category].toLowerCase()}/${p.slug}</span>
         </div>
-        <h3>${p.name}</h3>
+        ${p.badge ? `<p class="project-badge mono">★ ${p.badge[lang]}</p>` : ''}
+        <h3>${p.name}${p.team ? `<span class="team-tag mono">${t.projects.team}</span>` : ''}</h3>
         <p class="project-desc">${p.description[lang]}</p>
         <ul class="tags">${p.tech.map((tech) => `<li>${tech}</li>`).join('')}</ul>
         <div class="project-links">
-          <a href="${p.repo}" target="_blank" rel="noopener">${icons.github}${t.projects.code}</a>
+          ${
+            p.privateRepo
+              ? `<span class="private-repo">${icons.lock}${t.projects.privateRepo}</span>`
+              : `<a href="${p.repo}" target="_blank" rel="noopener">${icons.github}${t.projects.code}</a>`
+          }
           ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">${icons.external}${t.projects.demo}</a>` : ''}
         </div>
       </article>`,
