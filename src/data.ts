@@ -346,7 +346,7 @@ export const content: Record<Lang, Content> = {
         {
           title: 'La Tablita del Tártaro',
           role: 'Polifuncional',
-          period: '6 meses',
+          period: '20 mar 2025 - 10 sep 2025',
           description: 'Ventas y atención al cliente en distintas áreas de servicio al público de la cadena de restaurantes.',
           kind: 'work',
         },
