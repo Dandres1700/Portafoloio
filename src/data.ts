@@ -337,10 +337,10 @@ export const content: Record<Lang, Content> = {
         },
         {
           title: 'Holstein Grill',
-          role: 'Expeditor (tiempos y órdenes) → Parrillero → Polifuncional',
+          role: 'Parrillero → Polifuncional',
           period: '15 dic 2022 - 25 dic 2024',
           description:
-            'Expeditor, responsable del control de tiempos y órdenes (15 oct 2023 - 25 dic 2024). Parrillero durante 6 meses (15 abr 2023 - 14 oct 2023). Polifuncional durante los 4 primeros meses (15 dic 2022 - 14 abr 2023), con funciones de atención al cliente y ventas.',
+            'Parrillero durante 6 meses (15 abr 2023 - 14 oct 2023), con responsabilidades en preparación de alimentos, organización del área y cumplimiento de tiempos. Polifuncional durante los 4 primeros meses (15 dic 2022 - 14 abr 2023), con funciones de atención al cliente y ventas.',
           kind: 'work',
         },
         {
