@@ -340,7 +340,7 @@ export const content: Record<Lang, Content> = {
           role: 'Parrillero → Polifuncional',
           period: '15 dic 2022 - 25 dic 2024',
           description:
-            'Parrillero durante 6 meses (15 abr 2023 - 14 oct 2023), con responsabilidades en preparación de alimentos, organización del área y cumplimiento de tiempos. Polifuncional durante los 4 primeros meses (15 dic 2022 - 14 abr 2023), con funciones de atención al cliente y ventas.',
+            'Parrillero desde el 15 de abril de 2023 hasta el 25 de diciembre de 2024, con responsabilidades en preparación de alimentos, organización del área y cumplimiento de tiempos. Polifuncional durante los 4 primeros meses (15 dic 2022 - 14 abr 2023), con funciones de atención al cliente y ventas.',
           kind: 'work',
         },
         {
