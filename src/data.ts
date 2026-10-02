@@ -232,7 +232,7 @@ export const content: Record<Lang, Content> = {
       greeting: 'Hola, soy',
       role: 'Desarrollador de Software',
       tagline:
-        'Estudiante de Tecnología en Desarrollo de Software. Creo aplicaciones web, móviles y videojuegos, y también tengo experiencia en soporte técnico y mantenimiento de equipos.',
+        'Estudiante de Tecnología en Desarrollo de Software, con interés en el desarrollo de aplicaciones web, móviles y videojuegos. Cuento con experiencia en soporte técnico y mantenimiento de equipos.',
       ctaProjects: 'Ver proyectos',
       ctaCv: 'Descargar CV',
       terminal: [
@@ -248,21 +248,21 @@ export const content: Record<Lang, Content> = {
     about: {
       title: 'Sobre mí',
       paragraphs: [
-        'Soy estudiante de Tecnología en Desarrollo de Software en el Instituto Superior Tecnológico Sudamericano (Quito) y estoy por cursar el cuarto y último semestre.',
-        'Me gusta llevar las ideas a algo que funcione: desde una app de transporte en Flutter y React hecha en equipo hasta RUMI, el juego que presentamos en la Game Jam Ecuador 2026 en Quito. También hice mis pasantías en soporte técnico, así que conozco el software y el hardware.',
-        'Trabajé más de dos años atendiendo clientes bajo presión. De ahí vienen mi responsabilidad, mi forma de comunicarme y mi facilidad para trabajar en equipo.',
+        'Estudiante de Tecnología en Desarrollo de Software en el Instituto Superior Tecnológico Sudamericano (Quito). Tercer semestre culminado y avanzando hacia el cuarto nivel de formación académica.',
+        'Desarrollo aplicaciones web, móviles y videojuegos que convierten ideas en soluciones funcionales. Mi principal objetivo es generar ideas competitivas y aplicables. Cuento con experiencia en soporte técnico, mantenimiento de equipos y proyectos desarrollados en equipo.',
+        'El ámbito laboral me ha permitido trabajar bajo presión, desarrollando responsabilidad, objetividad y comunicación asertiva en los proyectos encomendados.',
       ],
       stats: [
         { value: '2', label: 'premios al mejor proyecto integrador' },
         { value: '15+', label: 'repositorios en GitHub' },
-        { value: '4.º', label: 'y último semestre por cursar' },
+        { value: '3.º', label: 'semestre culminado' },
         { value: '2+', label: 'años de experiencia laboral' },
       ],
     },
     awards: {
       title: 'Reconocimientos',
       intro:
-        'La Escuela de Desarrollo de Software me premió dos veces por el mejor proyecto integrador del nivel. También participé en la Game Jam Ecuador 2026.',
+        'La Escuela de Desarrollo de Software me premió dos veces por el mejor proyecto integrador del nivel. Participé además en la Game Jam Ecuador 2026.',
       issuer: 'Escuela de Desarrollo de Software · Instituto Superior Tecnológico Sudamericano',
       view: 'Ver certificado',
       items: [
@@ -313,7 +313,7 @@ export const content: Record<Lang, Content> = {
         },
       ],
       softTitle: 'Habilidades blandas',
-      soft: ['Aprendizaje rápido', 'Comunicación', 'Trabajo en equipo', 'Toma de decisiones', 'Gestión del tiempo', 'Trabajo bajo presión'],
+      soft: ['Responsabilidad y compromiso', 'Organización del trabajo', 'Adaptabilidad', 'Resolución de problemas', 'Orientación al servicio', 'Coordinación de equipos'],
       langTitle: 'Idiomas',
       languages: ['Español · Nativo', 'Inglés · A1'],
     },
@@ -337,10 +337,10 @@ export const content: Record<Lang, Content> = {
         },
         {
           title: 'Holstein Grill',
-          role: 'Polifuncional → Parrillero',
-          period: '2 años',
+          role: 'Expeditor (tiempos y órdenes) → Parrillero → Polifuncional',
+          period: '15 dic 2022 - 25 dic 2024',
           description:
-            'Empecé como polifuncional (atención al cliente y ventas) y a los 4 meses me ascendieron a parrillero. Ahí me encargué de la organización del área, el cumplimiento de tiempos y el trabajo bajo presión.',
+            'Expeditor, responsable del control de tiempos y órdenes (15 oct 2023 - 25 dic 2024). Parrillero durante 6 meses (15 abr 2023 - 14 oct 2023). Polifuncional durante los 4 primeros meses (15 dic 2022 - 14 abr 2023), con funciones de atención al cliente y ventas.',
           kind: 'work',
         },
         {
@@ -357,7 +357,7 @@ export const content: Record<Lang, Content> = {
           title: 'Instituto Superior Tecnológico Sudamericano',
           role: 'Tecnología en Desarrollo de Software',
           period: 'En curso',
-          description: 'Próximo a cursar el cuarto y último semestre.',
+          description: 'Tercer semestre culminado y avanzando hacia el cuarto nivel de formación académica.',
           kind: 'edu',
         },
         {
